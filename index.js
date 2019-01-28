@@ -134,10 +134,9 @@ const sortQueryLists = (queryLists, sort) => {
 };
 
 module.exports = postcss.plugin(pkg.name, options => {
-  const opts = {
-    sort: false,
-    ...options
-  };
+  const opts = Object.assign({}, {
+    sort: false
+  }, options);
 
   return css => {
     const queries = {};
